@@ -100,52 +100,55 @@ test('should not parse component with anyOf keyword', () => {
      */
   `];
   const expected = {
-    components: {
-      schemas: {
-        Song: {
-          type: 'object',
-          required: [
-            'title',
-          ],
-          description: 'A song',
-          properties: {
-            title: {
-              type: 'string',
-              description: '',
-            },
-            artist: {
-              type: 'string',
-              description: '',
-            },
-            year: {
-              type: 'number',
-              description: '',
-            },
+    schemas: {
+      Song: {
+        type: 'object',
+        required: [
+          'title',
+        ],
+        description: 'A song',
+        properties: {
+          title: {
+            type: 'string',
+            description: '',
+          },
+          artist: {
+            type: 'string',
+            description: '',
+          },
+          year: {
+            type: 'number',
+            description: '',
           },
         },
-        Album: {
-          type: 'object',
-          required: [],
-          description: 'Album',
-          properties: {
-            firstSong: {
-              description: '',
-              anyOf: [
-                {
-                  $ref: '#/components/schemas/Song',
-                },
-                {
-                  $ref: '#/components/schemas/Album',
-                },
-              ],
-            },
+      },
+      Album: {
+        type: 'object',
+        required: [],
+        description: 'Album',
+        properties: {
+          firstSong: {
+            description: '',
+            anyOf: [
+              {
+                $ref: '#/components/schemas/Song',
+              },
+              {
+                $ref: '#/components/schemas/Album',
+              },
+            ],
           },
         },
       },
     },
   };
   const parsedJSDocs = jsdocInfo()(jsodInput);
-  const result = parseComponents({}, parsedJSDocs);
+  let result = parseComponents({ components: {} }, parsedJSDocs[0]);
+  result = parseComponents({
+    components: {
+      ...result,
+    },
+  }, parsedJSDocs[1]);
   expect(result).toEqual(expected);
 });
 

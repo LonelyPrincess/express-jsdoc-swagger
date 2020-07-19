@@ -85,9 +85,7 @@ test('should parse basic info', async () => {
     security: undefined,
     paths: {},
     tags: [],
-    components: {
-      schemas: {},
-    },
+    components: {},
   };
   const result = await processSwagger(options);
   expect(result).toEqual(expected);

@@ -5,7 +5,6 @@ const jsdocInfo = require('./consumers/jsdocInfo');
 const {
   getBasicInfo,
   getSecuritySchemes,
-  getComponents,
   mainTransform,
 } = require('./transforms');
 
@@ -31,8 +30,6 @@ const processSwagger = (options, logger = defaultLogger) => {
     .then(data => {
       swaggerObject = mainTransform(swaggerObject, data);
       logger({ entity: 'endpoints', swaggerObject });
-      swaggerObject = getComponents(swaggerObject, data);
-      logger({ entity: 'components', swaggerObject });
       return swaggerObject;
     });
 };

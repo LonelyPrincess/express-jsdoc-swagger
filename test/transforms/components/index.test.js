@@ -2,30 +2,7 @@ const jsdocInfo = require('../../../consumers/jsdocInfo');
 const parseComponents = require('../../../transforms/components');
 
 describe('parseComponents method', () => {
-  it('should return empty array with not params', () => {
-    const initialState = {};
-    const components = undefined;
-    const expected = {
-      components: {
-        schemas: {},
-      },
-    };
-    const result = parseComponents(initialState, components);
-    expect(result).toEqual(expected);
-  });
-
-  it('should return empty array with not an array as parameter', () => {
-    const initialState = {};
-    const components = 2;
-    const expected = {
-      components: {
-        schemas: {},
-      },
-    };
-    const result = parseComponents(initialState, components);
-    expect(result).toEqual(expected);
-  });
-
+  const initState = { components: {} };
   it('Should parse jsdoc and return default value when there is no typedef', () => {
     const jsodInput = [`
       /**
@@ -36,12 +13,10 @@ describe('parseComponents method', () => {
        */
     `];
     const expected = {
-      components: {
-        schemas: {},
-      },
+      schemas: {},
     };
     const parsedJSDocs = jsdocInfo()(jsodInput);
-    const result = parseComponents({}, parsedJSDocs);
+    const result = parseComponents(initState, parsedJSDocs[0]);
     expect(result).toEqual(expected);
   });
 
@@ -56,32 +31,30 @@ describe('parseComponents method', () => {
        */
     `];
     const expected = {
-      components: {
-        schemas: {
-          Song: {
-            type: 'object',
-            required: [],
-            description: 'A song',
-            properties: {
-              title: {
-                type: 'string',
-                description: 'The title',
-              },
-              artist: {
-                type: 'string',
-                description: 'The artist',
-              },
-              year: {
-                type: 'number',
-                description: 'The year',
-              },
+      schemas: {
+        Song: {
+          type: 'object',
+          required: [],
+          description: 'A song',
+          properties: {
+            title: {
+              type: 'string',
+              description: 'The title',
+            },
+            artist: {
+              type: 'string',
+              description: 'The artist',
+            },
+            year: {
+              type: 'number',
+              description: 'The year',
             },
           },
         },
       },
     };
     const parsedJSDocs = jsdocInfo()(jsodInput);
-    const result = parseComponents({}, parsedJSDocs);
+    const result = parseComponents(initState, parsedJSDocs[0]);
     expect(result).toEqual(expected);
   });
 
@@ -96,37 +69,35 @@ describe('parseComponents method', () => {
        */
     `];
     const expected = {
-      components: {
-        schemas: {
-          Song: {
-            type: 'object',
-            required: [],
-            description: 'A song',
-            properties: {
-              title: {
-                type: 'string',
-                description: 'The title',
-              },
-              artist: {
-                type: 'string',
-                description: 'The artist',
-                enum: [
-                  'value1',
-                  'value2',
-                ],
-              },
-              year: {
-                type: 'number',
-                description: 'The year',
-                format: 'int64',
-              },
+      schemas: {
+        Song: {
+          type: 'object',
+          required: [],
+          description: 'A song',
+          properties: {
+            title: {
+              type: 'string',
+              description: 'The title',
+            },
+            artist: {
+              type: 'string',
+              description: 'The artist',
+              enum: [
+                'value1',
+                'value2',
+              ],
+            },
+            year: {
+              type: 'number',
+              description: 'The year',
+              format: 'int64',
             },
           },
         },
       },
     };
     const parsedJSDocs = jsdocInfo()(jsodInput);
-    const result = parseComponents({}, parsedJSDocs);
+    const result = parseComponents(initState, parsedJSDocs[0]);
     expect(result).toEqual(expected);
   });
 
@@ -141,37 +112,35 @@ describe('parseComponents method', () => {
        */
     `];
     const expected = {
-      components: {
-        schemas: {
-          Song: {
-            type: 'object',
-            required: [],
-            description: 'A song',
-            properties: {
-              title: {
-                type: 'string',
-                description: 'The title',
-              },
-              artist: {
-                type: 'string',
-                description: 'The artist',
-                enum: [
-                  'value1',
-                  'value2',
-                ],
-              },
-              year: {
-                type: 'number',
-                description: 'The year',
-                format: 'int64',
-              },
+      schemas: {
+        Song: {
+          type: 'object',
+          required: [],
+          description: 'A song',
+          properties: {
+            title: {
+              type: 'string',
+              description: 'The title',
+            },
+            artist: {
+              type: 'string',
+              description: 'The artist',
+              enum: [
+                'value1',
+                'value2',
+              ],
+            },
+            year: {
+              type: 'number',
+              description: 'The year',
+              format: 'int64',
             },
           },
         },
       },
     };
     const parsedJSDocs = jsdocInfo()(jsodInput);
-    const result = parseComponents({}, parsedJSDocs);
+    const result = parseComponents(initState, parsedJSDocs[0]);
     expect(result).toEqual(expected);
   });
 
@@ -186,35 +155,33 @@ describe('parseComponents method', () => {
        */
     `];
     const expected = {
-      components: {
-        schemas: {
-          Song: {
-            type: 'object',
-            required: [
-              'title',
-            ],
-            description: 'A song',
-            properties: {
-              title: {
-                type: 'string',
-                description: 'The title',
-              },
-              artist: {
-                type: 'string',
-                description: 'The artist',
-              },
-              year: {
-                type: 'number',
-                description: 'The year',
-                format: 'int64',
-              },
+      schemas: {
+        Song: {
+          type: 'object',
+          required: [
+            'title',
+          ],
+          description: 'A song',
+          properties: {
+            title: {
+              type: 'string',
+              description: 'The title',
+            },
+            artist: {
+              type: 'string',
+              description: 'The artist',
+            },
+            year: {
+              type: 'number',
+              description: 'The year',
+              format: 'int64',
             },
           },
         },
       },
     };
     const parsedJSDocs = jsdocInfo()(jsodInput);
-    const result = parseComponents({}, parsedJSDocs);
+    const result = parseComponents(initState, parsedJSDocs[0]);
     expect(result).toEqual(expected);
   });
 
@@ -237,52 +204,55 @@ describe('parseComponents method', () => {
        */
     `];
     const expected = {
-      components: {
-        schemas: {
-          Song: {
-            type: 'object',
-            required: [
-              'title',
-            ],
-            description: 'A song',
-            properties: {
-              title: {
-                type: 'string',
-                description: 'The title',
-              },
-              artist: {
-                type: 'string',
-                description: 'The artist',
-              },
-              year: {
-                type: 'number',
-                description: 'The year',
-                format: 'int64',
-              },
+      schemas: {
+        Song: {
+          type: 'object',
+          required: [
+            'title',
+          ],
+          description: 'A song',
+          properties: {
+            title: {
+              type: 'string',
+              description: 'The title',
+            },
+            artist: {
+              type: 'string',
+              description: 'The artist',
+            },
+            year: {
+              type: 'number',
+              description: 'The year',
+              format: 'int64',
             },
           },
-          Album: {
-            type: 'object',
-            required: [
-              'name',
-            ],
-            description: 'Album',
-            properties: {
-              name: {
-                type: 'string',
-                description: 'Album name',
-              },
-              length: {
-                type: 'number',
-                description: '',
-              },
+        },
+        Album: {
+          type: 'object',
+          required: [
+            'name',
+          ],
+          description: 'Album',
+          properties: {
+            name: {
+              type: 'string',
+              description: 'Album name',
+            },
+            length: {
+              type: 'number',
+              description: '',
             },
           },
         },
       },
     };
     const parsedJSDocs = jsdocInfo()(jsodInput);
-    const result = parseComponents({}, parsedJSDocs);
+    let result = parseComponents(initState, parsedJSDocs[0]);
+    result = parseComponents({
+      components: {
+        ...result,
+      },
+    }, parsedJSDocs[1]);
     expect(result).toEqual(expected);
   });
 
@@ -304,46 +274,49 @@ describe('parseComponents method', () => {
        */
     `];
     const expected = {
-      components: {
-        schemas: {
-          Song: {
-            type: 'object',
-            required: [
-              'title',
-            ],
-            description: 'A song',
-            properties: {
-              title: {
-                type: 'string',
-                description: 'The title',
-              },
-              artist: {
-                type: 'string',
-                description: 'The artist',
-              },
-              year: {
-                type: 'number',
-                description: 'The year',
-                format: 'int64',
-              },
+      schemas: {
+        Song: {
+          type: 'object',
+          required: [
+            'title',
+          ],
+          description: 'A song',
+          properties: {
+            title: {
+              type: 'string',
+              description: 'The title',
+            },
+            artist: {
+              type: 'string',
+              description: 'The artist',
+            },
+            year: {
+              type: 'number',
+              description: 'The year',
+              format: 'int64',
             },
           },
-          Album: {
-            type: 'object',
-            required: [],
-            description: 'Album',
-            properties: {
-              firstSong: {
-                $ref: '#/components/schemas/Song',
-                description: '',
-              },
+        },
+        Album: {
+          type: 'object',
+          required: [],
+          description: 'Album',
+          properties: {
+            firstSong: {
+              $ref: '#/components/schemas/Song',
+              description: '',
             },
           },
         },
       },
     };
     const parsedJSDocs = jsdocInfo()(jsodInput);
-    const result = parseComponents({}, parsedJSDocs);
+    let result = parseComponents(initState, parsedJSDocs[0]);
+    result = parseComponents({
+      components: {
+        ...result,
+      },
+    }, parsedJSDocs[1]);
     expect(result).toEqual(expected);
   });
 
@@ -365,45 +338,48 @@ describe('parseComponents method', () => {
        */
     `];
     const expected = {
-      components: {
-        schemas: {
-          Song: {
-            type: 'object',
-            required: [
-              'title',
-            ],
-            description: 'A song',
-            properties: {
-              title: {
-                type: 'string',
-                description: '',
-              },
-              artist: {
-                type: 'string',
-                description: '',
-              },
-              year: {
-                type: 'number',
-                description: '',
-              },
+      schemas: {
+        Song: {
+          type: 'object',
+          required: [
+            'title',
+          ],
+          description: 'A song',
+          properties: {
+            title: {
+              type: 'string',
+              description: '',
+            },
+            artist: {
+              type: 'string',
+              description: '',
+            },
+            year: {
+              type: 'number',
+              description: '',
             },
           },
-          Album: {
-            type: 'object',
-            required: [],
-            description: 'Album',
-            properties: {
-              firstSong: {
-                $ref: '#/components/schemas/Song',
-                description: '',
-              },
+        },
+        Album: {
+          type: 'object',
+          required: [],
+          description: 'Album',
+          properties: {
+            firstSong: {
+              $ref: '#/components/schemas/Song',
+              description: '',
             },
           },
         },
       },
     };
     const parsedJSDocs = jsdocInfo()(jsodInput);
-    const result = parseComponents({}, parsedJSDocs);
+    let result = parseComponents(initState, parsedJSDocs[0]);
+    result = parseComponents({
+      components: {
+        ...result,
+      },
+    }, parsedJSDocs[1]);
     expect(result).toEqual(expected);
   });
 
@@ -434,68 +410,76 @@ describe('parseComponents method', () => {
        */
     `];
     const expected = {
-      components: {
-        schemas: {
-          Song: {
-            type: 'object',
-            required: [
-              'title',
-            ],
-            description: 'A song',
-            properties: {
-              title: {
-                type: 'string',
-                description: 'The title',
-              },
-              artist: {
-                type: 'string',
-                description: 'The artist',
-              },
-              year: {
-                type: 'number',
-                description: 'The year',
-                format: 'int64',
-              },
+      schemas: {
+        Song: {
+          type: 'object',
+          required: [
+            'title',
+          ],
+          description: 'A song',
+          properties: {
+            title: {
+              type: 'string',
+              description: 'The title',
+            },
+            artist: {
+              type: 'string',
+              description: 'The artist',
+            },
+            year: {
+              type: 'number',
+              description: 'The year',
+              format: 'int64',
             },
           },
-          Author: {
-            type: 'object',
-            required: [
-              'name',
-            ],
-            description: 'Author model',
-            properties: {
-              name: {
-                type: 'string',
-                description: 'Author name',
-              },
-              age: {
-                type: 'number',
-                description: 'Author age',
-                format: 'int64',
-              },
+        },
+        Author: {
+          type: 'object',
+          required: [
+            'name',
+          ],
+          description: 'Author model',
+          properties: {
+            name: {
+              type: 'string',
+              description: 'Author name',
+            },
+            age: {
+              type: 'number',
+              description: 'Author age',
+              format: 'int64',
             },
           },
-          Album: {
-            type: 'object',
-            required: [],
-            description: 'Album',
-            properties: {
-              firstSong: {
-                $ref: '#/components/schemas/Song',
-                description: '',
-              },
-              author: {
-                $ref: '#/components/schemas/Author',
-                description: '',
-              },
+        },
+        Album: {
+          type: 'object',
+          required: [],
+          description: 'Album',
+          properties: {
+            firstSong: {
+              $ref: '#/components/schemas/Song',
+              description: '',
+            },
+            author: {
+              $ref: '#/components/schemas/Author',
+              description: '',
             },
           },
         },
       },
     };
     const parsedJSDocs = jsdocInfo()(jsodInput);
-    const result = parseComponents({}, parsedJSDocs);
+    let result = parseComponents(initState, parsedJSDocs[0]);
+    result = parseComponents({
+      components: {
+        ...result,
+      },
+    }, parsedJSDocs[1]);
+    result = parseComponents({
+      components: {
+        ...result,
+      },
+    }, parsedJSDocs[2]);
     expect(result).toEqual(expected);
   });
 
@@ -509,23 +493,21 @@ describe('parseComponents method', () => {
        */
     `];
     const expected = {
-      components: {
-        schemas: {
-          Album: {
-            type: 'object',
-            required: [],
-            description: 'Album',
-            properties: {
-              title: {
+      schemas: {
+        Album: {
+          type: 'object',
+          required: [],
+          description: 'Album',
+          properties: {
+            title: {
+              type: 'string',
+              description: 'The title',
+            },
+            songs: {
+              type: 'array',
+              description: 'songs array',
+              items: {
                 type: 'string',
-                description: 'The title',
-              },
-              songs: {
-                type: 'array',
-                description: 'songs array',
-                items: {
-                  type: 'string',
-                },
               },
             },
           },
@@ -533,7 +515,7 @@ describe('parseComponents method', () => {
       },
     };
     const parsedJSDocs = jsdocInfo()(jsodInput);
-    const result = parseComponents({}, parsedJSDocs);
+    const result = parseComponents(initState, parsedJSDocs[0]);
     expect(result).toEqual(expected);
   });
 
@@ -547,23 +529,21 @@ describe('parseComponents method', () => {
        */
     `];
     const expected = {
-      components: {
-        schemas: {
-          Album: {
-            type: 'object',
-            required: [],
-            description: 'Album',
-            properties: {
-              title: {
-                type: 'string',
-                description: 'The title',
-              },
-              years: {
-                type: 'array',
-                description: 'years description',
-                items: {
-                  type: 'number',
-                },
+      schemas: {
+        Album: {
+          type: 'object',
+          required: [],
+          description: 'Album',
+          properties: {
+            title: {
+              type: 'string',
+              description: 'The title',
+            },
+            years: {
+              type: 'array',
+              description: 'years description',
+              items: {
+                type: 'number',
               },
             },
           },
@@ -571,7 +551,7 @@ describe('parseComponents method', () => {
       },
     };
     const parsedJSDocs = jsdocInfo()(jsodInput);
-    const result = parseComponents({}, parsedJSDocs);
+    const result = parseComponents(initState, parsedJSDocs[0]);
     expect(result).toEqual(expected);
   });
 
@@ -585,23 +565,21 @@ describe('parseComponents method', () => {
        */
     `];
     const expected = {
-      components: {
-        schemas: {
-          Album: {
-            type: 'object',
-            required: [],
-            description: 'Album',
-            properties: {
-              title: {
-                type: 'string',
-                description: 'The title',
-              },
-              years: {
-                type: 'array',
-                description: '',
-                items: {
-                  type: 'number',
-                },
+      schemas: {
+        Album: {
+          type: 'object',
+          required: [],
+          description: 'Album',
+          properties: {
+            title: {
+              type: 'string',
+              description: 'The title',
+            },
+            years: {
+              type: 'array',
+              description: '',
+              items: {
+                type: 'number',
               },
             },
           },
@@ -609,7 +587,7 @@ describe('parseComponents method', () => {
       },
     };
     const parsedJSDocs = jsdocInfo()(jsodInput);
-    const result = parseComponents({}, parsedJSDocs);
+    const result = parseComponents(initState, parsedJSDocs[0]);
     expect(result).toEqual(expected);
   });
 
@@ -622,19 +600,17 @@ describe('parseComponents method', () => {
        */
     `];
     const expected = {
-      components: {
-        schemas: {
-          Album: {
-            type: 'object',
-            required: [],
-            description: 'Album',
-            properties: {
-              Songs: {
-                type: 'array',
-                description: '',
-                items: {
-                  $ref: '#/components/schemas/Song',
-                },
+      schemas: {
+        Album: {
+          type: 'object',
+          required: [],
+          description: 'Album',
+          properties: {
+            Songs: {
+              type: 'array',
+              description: '',
+              items: {
+                $ref: '#/components/schemas/Song',
               },
             },
           },
@@ -642,7 +618,7 @@ describe('parseComponents method', () => {
       },
     };
     const parsedJSDocs = jsdocInfo()(jsodInput);
-    const result = parseComponents({}, parsedJSDocs);
+    const result = parseComponents(initState, parsedJSDocs[0]);
     expect(result).toEqual(expected);
   });
 });

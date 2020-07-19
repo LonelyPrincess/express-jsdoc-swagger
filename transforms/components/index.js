@@ -70,16 +70,13 @@ const parseSchema = schema => {
   };
 };
 
-const parseComponents = (swaggerObject = {}, components = []) => {
-  if (!components || !Array.isArray(components)) return { components: { schemas: {} } };
-  const componentSchema = components.reduce((acum, item) => ({
-    ...acum, ...parseSchema(item),
-  }), {});
+const parseComponents = (swaggerObject = {}, component = {}) => {
+  const componentSchema = parseSchema(component);
   return {
-    ...swaggerObject,
-    components: {
-      ...swaggerObject.components,
-      schemas: componentSchema,
+    ...swaggerObject.components,
+    schemas: {
+      ...swaggerObject.components.schemas,
+      ...componentSchema,
     },
   };
 };

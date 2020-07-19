@@ -20,15 +20,14 @@ const mainTransform = (swaggerObject, data = []) => {
         ...getPaths(acum, item),
       },
       tags: getTags(acum, item),
+      components: getComponents(acum, item),
     }
   ), swaggerObject);
 };
 
 module.exports = {
   getBasicInfo,
-  getPaths,
   getComponents,
-  getTags,
   getSecuritySchemes,
   mainTransform,
 };
