@@ -23,7 +23,7 @@ describe('request body tests', () => {
       },
     };
     const parsedJSDocs = jsdocInfo()(jsodInput);
-    const result = setPaths({}, parsedJSDocs);
+    const result = setPaths({}, parsedJSDocs[0]);
     expect(result).toEqual(expected);
   });
 
@@ -60,7 +60,7 @@ describe('request body tests', () => {
       },
     };
     const parsedJSDocs = jsdocInfo()(jsodInput);
-    const result = setPaths({}, parsedJSDocs);
+    const result = setPaths({}, parsedJSDocs[0]);
     expect(result).toEqual(expected);
   });
 
@@ -101,7 +101,7 @@ describe('request body tests', () => {
       },
     };
     const parsedJSDocs = jsdocInfo()(jsodInput);
-    const result = setPaths({}, parsedJSDocs);
+    const result = setPaths({}, parsedJSDocs[0]);
     expect(result).toEqual(expected);
   });
 
@@ -141,7 +141,7 @@ describe('request body tests', () => {
       },
     };
     const parsedJSDocs = jsdocInfo()(jsodInput);
-    const result = setPaths({}, parsedJSDocs);
+    const result = setPaths({}, parsedJSDocs[0]);
     expect(result).toEqual(expected);
   });
 
@@ -182,7 +182,7 @@ describe('request body tests', () => {
       },
     };
     const parsedJSDocs = jsdocInfo()(jsodInput);
-    const result = setPaths({}, parsedJSDocs);
+    const result = setPaths({}, parsedJSDocs[0]);
     expect(result).toEqual(expected);
   });
 
@@ -219,7 +219,7 @@ describe('request body tests', () => {
       },
     };
     const parsedJSDocs = jsdocInfo()(jsodInput);
-    const result = setPaths({}, parsedJSDocs);
+    const result = setPaths({}, parsedJSDocs[0]);
     expect(result).toEqual(expected);
   });
 
@@ -259,7 +259,7 @@ describe('request body tests', () => {
       },
     };
     const parsedJSDocs = jsdocInfo()(jsodInput);
-    const result = setPaths({}, parsedJSDocs);
+    const result = setPaths({}, parsedJSDocs[0]);
     expect(result).toEqual(expected);
   });
 
@@ -305,7 +305,7 @@ describe('request body tests', () => {
       },
     };
     const parsedJSDocs = jsdocInfo()(jsodInput);
-    const result = setPaths({}, parsedJSDocs);
+    const result = setPaths({}, parsedJSDocs[0]);
     expect(result).toEqual(expected);
   });
 });

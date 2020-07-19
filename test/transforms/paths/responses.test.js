@@ -47,7 +47,7 @@ describe('response tests', () => {
       },
     };
     const parsedJSDocs = jsdocInfo()(jsodInput);
-    const result = setPaths({}, parsedJSDocs);
+    const result = setPaths({}, parsedJSDocs[0]);
     expect(result).toEqual(expected);
   });
 
@@ -75,7 +75,7 @@ describe('response tests', () => {
       },
     };
     const parsedJSDocs = jsdocInfo()(jsodInput);
-    const result = setPaths({}, parsedJSDocs);
+    const result = setPaths({}, parsedJSDocs[0]);
     expect(result).toEqual(expected);
     // eslint-disable-next-line
     expect(console.warn).toHaveBeenCalled();
@@ -116,7 +116,7 @@ describe('response tests', () => {
       },
     };
     const parsedJSDocs = jsdocInfo()(jsodInput);
-    const result = setPaths({}, parsedJSDocs);
+    const result = setPaths({}, parsedJSDocs[0]);
     expect(result).toEqual(expected);
     // eslint-disable-next-line
     expect(console.warn).not.toHaveBeenCalled();
@@ -159,7 +159,7 @@ describe('response tests', () => {
       },
     };
     const parsedJSDocs = jsdocInfo()(jsodInput);
-    const result = setPaths({}, parsedJSDocs);
+    const result = setPaths({}, parsedJSDocs[0]);
     expect(result).toEqual(expected);
   });
 
@@ -197,7 +197,7 @@ describe('response tests', () => {
       },
     };
     const parsedJSDocs = jsdocInfo()(jsodInput);
-    const result = setPaths({}, parsedJSDocs);
+    const result = setPaths({}, parsedJSDocs[0]);
     expect(result).toEqual(expected);
   });
 
@@ -238,7 +238,7 @@ describe('response tests', () => {
       },
     };
     const parsedJSDocs = jsdocInfo()(jsodInput);
-    const result = setPaths({}, parsedJSDocs);
+    const result = setPaths({}, parsedJSDocs[0]);
     expect(result).toEqual(expected);
   });
 
@@ -293,7 +293,7 @@ describe('response tests', () => {
       },
     };
     const parsedJSDocs = jsdocInfo()(jsodInput);
-    const result = setPaths({}, parsedJSDocs);
+    const result = setPaths({}, parsedJSDocs[0]);
     expect(result).toEqual(expected);
   });
 });

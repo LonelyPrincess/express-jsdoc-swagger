@@ -26,7 +26,7 @@ describe('Paths - tags', () => {
       },
     };
     const parsedJSDocs = jsdocInfo()(jsodInput);
-    const result = setPaths({}, parsedJSDocs);
+    const result = setPaths({}, parsedJSDocs[0]);
     expect(result).toEqual(expected);
   });
 
@@ -56,7 +56,7 @@ describe('Paths - tags', () => {
       },
     };
     const parsedJSDocs = jsdocInfo()(jsodInput);
-    const result = setPaths({}, parsedJSDocs);
+    const result = setPaths({}, parsedJSDocs[0]);
     expect(result).toEqual(expected);
   });
 
@@ -86,7 +86,7 @@ describe('Paths - tags', () => {
       },
     };
     const parsedJSDocs = jsdocInfo()(jsodInput);
-    const result = setPaths({}, parsedJSDocs);
+    const result = setPaths({}, parsedJSDocs[0]);
     expect(result).toEqual(expected);
   });
 });

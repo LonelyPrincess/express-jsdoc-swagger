@@ -4,12 +4,12 @@ const parseComponents = require('../../../transforms/components');
 
 test('should parse jsdoc path response with oneOf keyword', () => {
   const jsodInput = [`
-      /**
-       * GET /api/v1
-       * @summary This is the summary or description of the endpoint
-       * @return {oneOf|Song|Album} 200 - success response - application/json
-       */
-    `];
+    /**
+     * GET /api/v1
+     * @summary This is the summary or description of the endpoint
+     * @return {oneOf|Song|Album} 200 - success response - application/json
+     */
+  `];
   const expected = {
     paths: {
       '/api/v1': {
@@ -43,7 +43,7 @@ test('should parse jsdoc path response with oneOf keyword', () => {
     },
   };
   const parsedJSDocs = jsdocInfo()(jsodInput);
-  const result = setPaths({}, parsedJSDocs);
+  const result = setPaths({}, parsedJSDocs[0]);
   expect(result).toEqual(expected);
 });
 
@@ -80,7 +80,7 @@ test('should not parse when type is invalid', () => {
     },
   };
   const parsedJSDocs = jsdocInfo()(jsodInput);
-  const result = setPaths({}, parsedJSDocs);
+  const result = setPaths({}, parsedJSDocs[0]);
   expect(result).toEqual(expected);
   // eslint-disable-next-line
   expect(console.warn).toHaveBeenCalled();
@@ -191,6 +191,6 @@ test('should parse jsdoc path reference params with allOf keyword', () => {
     },
   };
   const parsedJSDocs = jsdocInfo()(jsodInput);
-  const result = setPaths({}, parsedJSDocs);
+  const result = setPaths({}, parsedJSDocs[0]);
   expect(result).toEqual(expected);
 });

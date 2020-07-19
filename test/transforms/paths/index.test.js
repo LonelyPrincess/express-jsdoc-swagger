@@ -56,7 +56,7 @@ describe('setPaths method', () => {
       },
     };
     const parsedJSDocs = jsdocInfo()(jsodInput);
-    const result = setPaths({}, parsedJSDocs);
+    const result = setPaths({}, parsedJSDocs[0]);
     expect(result).toEqual(expected);
   });
 
@@ -95,7 +95,7 @@ describe('setPaths method', () => {
       },
     };
     const parsedJSDocs = jsdocInfo()(jsodInput);
-    const result = setPaths({}, parsedJSDocs);
+    const result = setPaths({}, parsedJSDocs[0]);
     expect(result).toEqual(expected);
   });
 
@@ -162,7 +162,8 @@ describe('setPaths method', () => {
       },
     };
     const parsedJSDocs = jsdocInfo()(jsodInput);
-    const result = setPaths({}, parsedJSDocs);
+    let result = setPaths({}, parsedJSDocs[0]);
+    result = setPaths(result, parsedJSDocs[1]);
     expect(result).toEqual(expected);
   });
 
@@ -227,7 +228,8 @@ describe('setPaths method', () => {
       },
     };
     const parsedJSDocs = jsdocInfo()(jsodInput);
-    const result = setPaths({}, parsedJSDocs);
+    let result = setPaths({}, parsedJSDocs[0]);
+    result = setPaths(result, parsedJSDocs[1]);
     expect(result).toEqual(expected);
   });
 });

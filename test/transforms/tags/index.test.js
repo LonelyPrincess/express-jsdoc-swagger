@@ -2,16 +2,6 @@ const jsdocInfo = require('../../../consumers/jsdocInfo');
 const parseTags = require('../../../transforms/tags');
 
 describe('parseTags method', () => {
-  it('should return empty tags array with not params', () => {
-    const initialState = {};
-    const tags = undefined;
-    const expected = {
-      tags: [],
-    };
-    const result = parseTags(initialState, tags);
-    expect(result).toEqual(expected);
-  });
-
   it('Should not parse params that aren\'t tags', () => {
     const jsodInput = [`
       /**
@@ -23,7 +13,7 @@ describe('parseTags method', () => {
       tags: [],
     };
     const parsedJSDocs = jsdocInfo()(jsodInput);
-    const result = parseTags({}, parsedJSDocs);
+    const result = parseTags({}, parsedJSDocs[0]);
     expect(result).toEqual(expected);
   });
 
@@ -63,7 +53,8 @@ describe('parseTags method', () => {
       ],
     };
     const parsedJSDocs = jsdocInfo()(jsodInput);
-    const result = parseTags({}, parsedJSDocs);
+    let result = parseTags({}, parsedJSDocs[0]);
+    result = parseTags(result, parsedJSDocs[1]);
     expect(result).toEqual(expected);
   });
 
@@ -99,7 +90,9 @@ describe('parseTags method', () => {
       ],
     };
     const parsedJSDocs = jsdocInfo()(jsodInput);
-    const result = parseTags({}, parsedJSDocs);
+    let result = parseTags({}, parsedJSDocs[0]);
+    result = parseTags(result, parsedJSDocs[1]);
+    result = parseTags(result, parsedJSDocs[2]);
     expect(result).toEqual(expected);
   });
 
@@ -129,7 +122,8 @@ describe('parseTags method', () => {
       ],
     };
     const parsedJSDocs = jsdocInfo()(jsodInput);
-    const result = parseTags({}, parsedJSDocs);
+    let result = parseTags({}, parsedJSDocs[0]);
+    result = parseTags(result, parsedJSDocs[1]);
     expect(result).toEqual(expected);
   });
 
@@ -155,7 +149,8 @@ describe('parseTags method', () => {
       ],
     };
     const parsedJSDocs = jsdocInfo()(jsodInput);
-    const result = parseTags({}, parsedJSDocs);
+    let result = parseTags({}, parsedJSDocs[0]);
+    result = parseTags({}, parsedJSDocs[1]);
     expect(result).toEqual(expected);
   });
 });

@@ -29,7 +29,7 @@ describe('Paths - security', () => {
       },
     };
     const parsedJSDocs = jsdocInfo()(jsodInput);
-    const result = setPaths({}, parsedJSDocs);
+    const result = setPaths({}, parsedJSDocs[0]);
     expect(result).toEqual(expected);
   });
 });
