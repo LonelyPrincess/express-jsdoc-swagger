@@ -27,10 +27,10 @@ const processSwagger = (options, logger = defaultLogger) => {
     .then(readFiles)
     .then(getOnlyComments)
     .then(jsdocInfo())
-    .then(data => {
-      swaggerObject = mainTransform(swaggerObject, data);
-      logger({ entity: 'endpoints', swaggerObject });
-      return swaggerObject;
+    .then(mainTransform(swaggerObject))
+    .then(result => {
+      logger({ entity: 'endpoints', swaggerObject: result });
+      return result;
     });
 };
 

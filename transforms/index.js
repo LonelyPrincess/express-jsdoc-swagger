@@ -9,11 +9,11 @@ const initialState = {
   tags: [],
 };
 
-const mainTransform = (swaggerObject, data = []) => {
+const mainTransform = swaggerObject => (data = []) => new Promise(resolve => {
   if (!Array.isArray(data) || data.length === 0) {
-    return { ...swaggerObject, ...initialState };
+    return resolve({ ...swaggerObject, ...initialState });
   }
-  return data.reduce((acum, item) => (
+  const parseResult = data.reduce((acum, item) => (
     {
       ...acum,
       paths: {
@@ -23,7 +23,8 @@ const mainTransform = (swaggerObject, data = []) => {
       components: getComponents(acum, item),
     }
   ), swaggerObject);
-};
+  return resolve(parseResult);
+});
 
 module.exports = {
   getBasicInfo,
