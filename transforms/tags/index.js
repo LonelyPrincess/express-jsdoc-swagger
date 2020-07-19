@@ -1,10 +1,10 @@
 const { getTagsInfo, formatDescriptionTag } = require('../utils/tags');
-const { flatArray, getIndexBy } = require('../utils/arrays');
+const { getIndexBy } = require('../utils/arrays');
 
 const FILTER_TAG_KEY = 'name';
 
 const formatTags = ({ tags = [] }) => {
-  const infoTags = getTagsInfo(tags, 'tags');
+  const infoTags = getTagsInfo(tags, 'tags'); // CONDITION
   return infoTags.map(({ description: tagDescription }) => {
     const { name, description = '' } = formatDescriptionTag(tagDescription);
     return {
@@ -28,10 +28,10 @@ const filterDuplicateTags = tags => (
 );
 
 const parseTags = (swaggerObject = {}, data) => {
-  if (!data || !Array.isArray(data)) return { tags: [] };
-  const tags = flatArray(data.map(formatTags));
+  const prevTags = swaggerObject.tags || [];
+  const tags = formatTags(data);
   const ordererTags = sortByDescription(tags);
-  const uniqTags = filterDuplicateTags(ordererTags);
+  const uniqTags = filterDuplicateTags([...ordererTags, ...prevTags]);
   return {
     ...swaggerObject,
     tags: sortTagsByName(uniqTags),

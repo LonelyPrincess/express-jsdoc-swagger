@@ -53,7 +53,7 @@ const pathValues = tags => {
   };
 };
 
-const parsePath = (path, state) => {
+const parsePath = (path, state = {}) => {
   if (!path.description || !path.tags) return {};
   const [method, endpoint] = path.description.split(' ');
   // if jsdoc comment does not contain structure <Method> - <Endpoint> is not valid path
@@ -80,13 +80,9 @@ const parsePath = (path, state) => {
   };
 };
 
-const getPathObject = paths => paths.reduce((acum, item) => ({
-  ...acum, ...parsePath(item, acum),
-}), {});
-
-const parsePaths = (swaggerObject = {}, paths = []) => {
-  if (!paths || !Array.isArray(paths)) return { paths: {} };
-  const pathObject = getPathObject(paths);
+const parsePaths = (swaggerObject = {}, path) => {
+  if (!path) return { paths: {} };
+  const pathObject = parsePath(path, swaggerObject.paths);
   return {
     ...swaggerObject,
     paths: pathObject,
