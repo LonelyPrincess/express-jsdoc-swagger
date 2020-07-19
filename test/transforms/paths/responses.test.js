@@ -12,32 +12,30 @@ describe('response tests', () => {
        */
     `];
     const expected = {
-      paths: {
-        '/api/v1': {
-          get: {
-            deprecated: false,
-            summary: 'This is the summary or description of the endpoint',
-            parameters: [],
-            tags: [],
-            security: [],
-            responses: {
-              200: {
-                description: 'success response',
-                content: {
-                  'application/json': {
-                    schema: {
-                      type: 'object',
-                    },
+      '/api/v1': {
+        get: {
+          deprecated: false,
+          summary: 'This is the summary or description of the endpoint',
+          parameters: [],
+          tags: [],
+          security: [],
+          responses: {
+            200: {
+              description: 'success response',
+              content: {
+                'application/json': {
+                  schema: {
+                    type: 'object',
                   },
                 },
               },
-              400: {
-                description: 'Bad request response',
-                content: {
-                  'application/json': {
-                    schema: {
-                      type: 'object',
-                    },
+            },
+            400: {
+              description: 'Bad request response',
+              content: {
+                'application/json': {
+                  schema: {
+                    type: 'object',
                   },
                 },
               },
@@ -61,16 +59,14 @@ describe('response tests', () => {
        */
     `];
     const expected = {
-      paths: {
-        '/api/v1': {
-          get: {
-            deprecated: false,
-            summary: 'This is the summary or description of the endpoint',
-            responses: {},
-            parameters: [],
-            tags: [],
-            security: [],
-          },
+      '/api/v1': {
+        get: {
+          deprecated: false,
+          summary: 'This is the summary or description of the endpoint',
+          responses: {},
+          parameters: [],
+          tags: [],
+          security: [],
         },
       },
     };
@@ -91,22 +87,20 @@ describe('response tests', () => {
        */
     `];
     const expected = {
-      paths: {
-        '/api/v1': {
-          get: {
-            deprecated: false,
-            summary: 'This is the summary or description of the endpoint',
-            parameters: [],
-            tags: [],
-            security: [],
-            responses: {
-              default: {
-                description: 'success response',
-                content: {
-                  'application/json': {
-                    schema: {
-                      type: 'object',
-                    },
+      '/api/v1': {
+        get: {
+          deprecated: false,
+          summary: 'This is the summary or description of the endpoint',
+          parameters: [],
+          tags: [],
+          security: [],
+          responses: {
+            default: {
+              description: 'success response',
+              content: {
+                'application/json': {
+                  schema: {
+                    type: 'object',
                   },
                 },
               },
@@ -131,24 +125,22 @@ describe('response tests', () => {
        */
     `];
     const expected = {
-      paths: {
-        '/api/v1': {
-          get: {
-            deprecated: false,
-            summary: 'This is the summary or description of the endpoint',
-            parameters: [],
-            tags: [],
-            security: [],
-            responses: {
-              200: {
-                description: 'success response',
-                content: {
-                  'application/json': {
-                    schema: {
-                      type: 'array',
-                      items: {
-                        type: 'integer',
-                      },
+      '/api/v1': {
+        get: {
+          deprecated: false,
+          summary: 'This is the summary or description of the endpoint',
+          parameters: [],
+          tags: [],
+          security: [],
+          responses: {
+            200: {
+              description: 'success response',
+              content: {
+                'application/json': {
+                  schema: {
+                    type: 'array',
+                    items: {
+                      type: 'integer',
                     },
                   },
                 },
@@ -172,22 +164,20 @@ describe('response tests', () => {
        */
     `];
     const expected = {
-      paths: {
-        '/api/v1': {
-          get: {
-            deprecated: false,
-            summary: 'This is the summary or description of the endpoint',
-            parameters: [],
-            tags: [],
-            security: [],
-            responses: {
-              200: {
-                description: 'success response',
-                content: {
-                  'application/json': {
-                    schema: {
-                      $ref: '#/components/schemas/Song',
-                    },
+      '/api/v1': {
+        get: {
+          deprecated: false,
+          summary: 'This is the summary or description of the endpoint',
+          parameters: [],
+          tags: [],
+          security: [],
+          responses: {
+            200: {
+              description: 'success response',
+              content: {
+                'application/json': {
+                  schema: {
+                    $ref: '#/components/schemas/Song',
                   },
                 },
               },
@@ -210,24 +200,22 @@ describe('response tests', () => {
        */
     `];
     const expected = {
-      paths: {
-        '/api/v1': {
-          get: {
-            deprecated: false,
-            summary: 'This is the summary or description of the endpoint',
-            parameters: [],
-            tags: [],
-            security: [],
-            responses: {
-              200: {
-                description: 'success response',
-                content: {
-                  'application/json': {
-                    schema: {
-                      type: 'array',
-                      items: {
-                        $ref: '#/components/schemas/Song',
-                      },
+      '/api/v1': {
+        get: {
+          deprecated: false,
+          summary: 'This is the summary or description of the endpoint',
+          parameters: [],
+          tags: [],
+          security: [],
+          responses: {
+            200: {
+              description: 'success response',
+              content: {
+                'application/json': {
+                  schema: {
+                    type: 'array',
+                    items: {
+                      $ref: '#/components/schemas/Song',
                     },
                   },
                 },
@@ -253,37 +241,35 @@ describe('response tests', () => {
        */
     `];
     const expected = {
-      paths: {
-        '/api/v1': {
-          get: {
-            deprecated: false,
-            summary: 'This is the summary or description of the endpoint',
-            parameters: [],
-            tags: [],
-            security: [],
-            responses: {
-              200: {
-                description: 'success response',
-                content: {
-                  'application/json': {
-                    schema: {
-                      type: 'object',
-                    },
+      '/api/v1': {
+        get: {
+          deprecated: false,
+          summary: 'This is the summary or description of the endpoint',
+          parameters: [],
+          tags: [],
+          security: [],
+          responses: {
+            200: {
+              description: 'success response',
+              content: {
+                'application/json': {
+                  schema: {
+                    type: 'object',
                   },
                 },
               },
-              400: {
-                description: 'Bad request response',
-                content: {
-                  'application/json': {
-                    schema: {
-                      type: 'object',
-                    },
+            },
+            400: {
+              description: 'Bad request response',
+              content: {
+                'application/json': {
+                  schema: {
+                    type: 'object',
                   },
-                  'application/xml': {
-                    schema: {
-                      type: 'string',
-                    },
+                },
+                'application/xml': {
+                  schema: {
+                    type: 'string',
                   },
                 },
               },

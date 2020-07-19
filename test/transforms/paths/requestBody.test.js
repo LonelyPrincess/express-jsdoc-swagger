@@ -9,16 +9,14 @@ describe('request body tests', () => {
        */
     `];
     const expected = {
-      paths: {
-        '/api/v1/': {
-          post: {
-            deprecated: false,
-            summary: '',
-            responses: {},
-            tags: [],
-            security: [],
-            parameters: [],
-          },
+      '/api/v1/': {
+        post: {
+          deprecated: false,
+          summary: '',
+          responses: {},
+          tags: [],
+          security: [],
+          parameters: [],
         },
       },
     };
@@ -35,23 +33,21 @@ describe('request body tests', () => {
        */
     `];
     const expected = {
-      paths: {
-        '/api/v1': {
-          post: {
-            deprecated: false,
-            summary: '',
-            responses: {},
-            tags: [],
-            security: [],
-            parameters: [],
-            requestBody: {
-              description: 'name body description',
-              required: true,
-              content: {
-                'application/json': {
-                  schema: {
-                    type: 'string',
-                  },
+      '/api/v1': {
+        post: {
+          deprecated: false,
+          summary: '',
+          responses: {},
+          tags: [],
+          security: [],
+          parameters: [],
+          requestBody: {
+            description: 'name body description',
+            required: true,
+            content: {
+              'application/json': {
+                schema: {
+                  type: 'string',
                 },
               },
             },
@@ -73,25 +69,23 @@ describe('request body tests', () => {
        */
     `];
     const expected = {
-      paths: {
-        '/api/v1/albums': {
-          post: {
-            deprecated: false,
-            summary: '',
-            responses: {},
-            tags: [],
-            security: [],
-            parameters: [],
-            requestBody: {
-              description: '',
-              required: true,
-              content: {
-                'application/json': {
-                  schema: {
-                    type: 'array',
-                    items: {
-                      type: 'object',
-                    },
+      '/api/v1/albums': {
+        post: {
+          deprecated: false,
+          summary: '',
+          responses: {},
+          tags: [],
+          security: [],
+          parameters: [],
+          requestBody: {
+            description: '',
+            required: true,
+            content: {
+              'application/json': {
+                schema: {
+                  type: 'array',
+                  items: {
+                    type: 'object',
                   },
                 },
               },
@@ -113,25 +107,23 @@ describe('request body tests', () => {
        */
     `];
     const expected = {
-      paths: {
-        '/api/v1': {
-          post: {
-            deprecated: false,
-            summary: '',
-            responses: {},
-            tags: [],
-            security: [],
-            parameters: [],
-            requestBody: {
-              description: 'name body description',
-              required: true,
-              content: {
-                'application/json': {
-                  schema: {
-                    type: 'array',
-                    items: {
-                      type: 'string',
-                    },
+      '/api/v1': {
+        post: {
+          deprecated: false,
+          summary: '',
+          responses: {},
+          tags: [],
+          security: [],
+          parameters: [],
+          requestBody: {
+            description: 'name body description',
+            required: true,
+            content: {
+              'application/json': {
+                schema: {
+                  type: 'array',
+                  items: {
+                    type: 'string',
                   },
                 },
               },
@@ -154,25 +146,23 @@ describe('request body tests', () => {
        */
     `];
     const expected = {
-      paths: {
-        '/api/v1': {
-          post: {
-            deprecated: false,
-            summary: '',
-            responses: {},
-            tags: [],
-            security: [],
-            parameters: [],
-            requestBody: {
-              description: 'name body description',
-              required: true,
-              content: {
-                'application/json': {
-                  schema: {
-                    type: 'array',
-                    items: {
-                      type: 'string',
-                    },
+      '/api/v1': {
+        post: {
+          deprecated: false,
+          summary: '',
+          responses: {},
+          tags: [],
+          security: [],
+          parameters: [],
+          requestBody: {
+            description: 'name body description',
+            required: true,
+            content: {
+              'application/json': {
+                schema: {
+                  type: 'array',
+                  items: {
+                    type: 'string',
                   },
                 },
               },
@@ -194,23 +184,21 @@ describe('request body tests', () => {
        */
     `];
     const expected = {
-      paths: {
-        '/api/v1': {
-          post: {
-            deprecated: false,
-            summary: '',
-            responses: {},
-            tags: [],
-            security: [],
-            parameters: [],
-            requestBody: {
-              description: 'name body description',
-              required: true,
-              content: {
-                'application/json': {
-                  schema: {
-                    $ref: '#/components/schemas/Song',
-                  },
+      '/api/v1': {
+        post: {
+          deprecated: false,
+          summary: '',
+          responses: {},
+          tags: [],
+          security: [],
+          parameters: [],
+          requestBody: {
+            description: 'name body description',
+            required: true,
+            content: {
+              'application/json': {
+                schema: {
+                  $ref: '#/components/schemas/Song',
                 },
               },
             },
@@ -231,25 +219,23 @@ describe('request body tests', () => {
        */
     `];
     const expected = {
-      paths: {
-        '/api/v1': {
-          post: {
-            deprecated: false,
-            summary: '',
-            responses: {},
-            tags: [],
-            security: [],
-            parameters: [],
-            requestBody: {
-              description: 'name body description',
-              required: true,
-              content: {
-                'application/json': {
-                  schema: {
-                    type: 'array',
-                    items: {
-                      $ref: '#/components/schemas/Song',
-                    },
+      '/api/v1': {
+        post: {
+          deprecated: false,
+          summary: '',
+          responses: {},
+          tags: [],
+          security: [],
+          parameters: [],
+          requestBody: {
+            description: 'name body description',
+            required: true,
+            content: {
+              'application/json': {
+                schema: {
+                  type: 'array',
+                  items: {
+                    $ref: '#/components/schemas/Song',
                   },
                 },
               },
@@ -272,31 +258,29 @@ describe('request body tests', () => {
        */
     `];
     const expected = {
-      paths: {
-        '/api/v1': {
-          post: {
-            deprecated: false,
-            summary: '',
-            responses: {},
-            tags: [],
-            security: [],
-            parameters: [],
-            requestBody: {
-              description: 'name body description',
-              required: true,
-              content: {
-                'application/json': {
-                  schema: {
-                    type: 'array',
-                    items: {
-                      $ref: '#/components/schemas/Song',
-                    },
-                  },
-                },
-                'application/xml': {
-                  schema: {
+      '/api/v1': {
+        post: {
+          deprecated: false,
+          summary: '',
+          responses: {},
+          tags: [],
+          security: [],
+          parameters: [],
+          requestBody: {
+            description: 'name body description',
+            required: true,
+            content: {
+              'application/json': {
+                schema: {
+                  type: 'array',
+                  items: {
                     $ref: '#/components/schemas/Song',
                   },
+                },
+              },
+              'application/xml': {
+                schema: {
+                  $ref: '#/components/schemas/Song',
                 },
               },
             },

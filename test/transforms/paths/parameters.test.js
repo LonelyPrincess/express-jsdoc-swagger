@@ -10,25 +10,23 @@ describe('params tests', () => {
        */
     `];
     const expected = {
-      paths: {
-        '/api/v1': {
-          get: {
+      '/api/v1': {
+        get: {
+          deprecated: false,
+          summary: '',
+          responses: {},
+          tags: [],
+          security: [],
+          parameters: [{
             deprecated: false,
-            summary: '',
-            responses: {},
-            tags: [],
-            security: [],
-            parameters: [{
-              deprecated: false,
-              description: 'name param description',
-              in: 'query',
-              name: 'name',
-              required: true,
-              schema: {
-                type: 'string',
-              },
-            }],
-          },
+            description: 'name param description',
+            in: 'query',
+            name: 'name',
+            required: true,
+            schema: {
+              type: 'string',
+            },
+          }],
         },
       },
     };
@@ -45,16 +43,14 @@ describe('params tests', () => {
        */
     `];
     const expected = {
-      paths: {
-        '/api/v1': {
-          get: {
-            deprecated: false,
-            summary: '',
-            responses: {},
-            tags: [],
-            security: [],
-            parameters: [],
-          },
+      '/api/v1': {
+        get: {
+          deprecated: false,
+          summary: '',
+          responses: {},
+          tags: [],
+          security: [],
+          parameters: [],
         },
       },
     };
@@ -71,28 +67,26 @@ describe('params tests', () => {
        */
     `];
     const expected = {
-      paths: {
-        '/api/v1': {
-          get: {
-            deprecated: false,
-            summary: '',
-            responses: {},
-            tags: [],
-            security: [],
-            parameters: [{
-              deprecated: true,
-              description: 'name param description',
-              in: 'query',
-              name: 'name',
-              required: true,
-              schema: {
-                type: 'array',
-                items: {
-                  type: 'string',
-                },
+      '/api/v1': {
+        get: {
+          deprecated: false,
+          summary: '',
+          responses: {},
+          tags: [],
+          security: [],
+          parameters: [{
+            deprecated: true,
+            description: 'name param description',
+            in: 'query',
+            name: 'name',
+            required: true,
+            schema: {
+              type: 'array',
+              items: {
+                type: 'string',
               },
-            }],
-          },
+            },
+          }],
         },
       },
     };
@@ -110,37 +104,35 @@ describe('params tests', () => {
        */
     `];
     const expected = {
-      paths: {
-        '/api/v1': {
-          get: {
+      '/api/v1': {
+        get: {
+          deprecated: false,
+          summary: '',
+          responses: {},
+          tags: [],
+          security: [],
+          parameters: [{
+            deprecated: true,
+            description: 'name param description',
+            in: 'query',
+            name: 'name',
+            required: true,
+            schema: {
+              type: 'array',
+              items: {
+                type: 'string',
+              },
+            },
+          }, {
             deprecated: false,
-            summary: '',
-            responses: {},
-            tags: [],
-            security: [],
-            parameters: [{
-              deprecated: true,
-              description: 'name param description',
-              in: 'query',
-              name: 'name',
-              required: true,
-              schema: {
-                type: 'array',
-                items: {
-                  type: 'string',
-                },
-              },
-            }, {
-              deprecated: false,
-              description: '',
-              in: 'param',
-              name: 'phone',
-              required: false,
-              schema: {
-                type: 'number',
-              },
-            }],
-          },
+            description: '',
+            in: 'param',
+            name: 'phone',
+            required: false,
+            schema: {
+              type: 'number',
+            },
+          }],
         },
       },
     };
@@ -157,25 +149,23 @@ describe('params tests', () => {
        */
     `];
     const expected = {
-      paths: {
-        '/api/v1': {
-          get: {
+      '/api/v1': {
+        get: {
+          deprecated: false,
+          summary: '',
+          responses: {},
+          tags: [],
+          security: [],
+          parameters: [{
             deprecated: false,
-            summary: '',
-            responses: {},
-            tags: [],
-            security: [],
-            parameters: [{
-              deprecated: false,
-              description: 'name param description',
-              in: 'query',
-              name: 'name',
-              required: true,
-              schema: {
-                $ref: '#/components/schemas/Song',
-              },
-            }],
-          },
+            description: 'name param description',
+            in: 'query',
+            name: 'name',
+            required: true,
+            schema: {
+              $ref: '#/components/schemas/Song',
+            },
+          }],
         },
       },
     };
@@ -192,28 +182,26 @@ describe('params tests', () => {
        */
     `];
     const expected = {
-      paths: {
-        '/api/v1': {
-          get: {
-            deprecated: false,
-            summary: '',
-            responses: {},
-            tags: [],
-            security: [],
-            parameters: [{
-              deprecated: true,
-              description: 'name param description',
-              in: 'query',
-              name: 'name',
-              required: true,
-              schema: {
-                type: 'array',
-                items: {
-                  $ref: '#/components/schemas/Song',
-                },
+      '/api/v1': {
+        get: {
+          deprecated: false,
+          summary: '',
+          responses: {},
+          tags: [],
+          security: [],
+          parameters: [{
+            deprecated: true,
+            description: 'name param description',
+            in: 'query',
+            name: 'name',
+            required: true,
+            schema: {
+              type: 'array',
+              items: {
+                $ref: '#/components/schemas/Song',
               },
-            }],
-          },
+            },
+          }],
         },
       },
     };
@@ -230,29 +218,27 @@ describe('params tests', () => {
        */
     `];
     const expected = {
-      paths: {
-        '/api/v1': {
-          get: {
+      '/api/v1': {
+        get: {
+          deprecated: false,
+          summary: '',
+          responses: {},
+          tags: [],
+          security: [],
+          parameters: [{
             deprecated: false,
-            summary: '',
-            responses: {},
-            tags: [],
-            security: [],
-            parameters: [{
-              deprecated: false,
-              description: 'name param description',
-              in: 'query',
-              name: 'name',
-              required: true,
-              schema: {
-                type: 'string',
-                enum: [
-                  'value1',
-                  'value2',
-                ],
-              },
-            }],
-          },
+            description: 'name param description',
+            in: 'query',
+            name: 'name',
+            required: true,
+            schema: {
+              type: 'string',
+              enum: [
+                'value1',
+                'value2',
+              ],
+            },
+          }],
         },
       },
     };
@@ -269,29 +255,27 @@ describe('params tests', () => {
        */
     `];
     const expected = {
-      paths: {
-        '/api/v1': {
-          get: {
+      '/api/v1': {
+        get: {
+          deprecated: false,
+          summary: '',
+          responses: {},
+          tags: [],
+          security: [],
+          parameters: [{
             deprecated: false,
-            summary: '',
-            responses: {},
-            tags: [],
-            security: [],
-            parameters: [{
-              deprecated: false,
-              description: 'name param description',
-              in: 'query',
-              name: 'name',
-              required: true,
-              schema: {
-                type: 'string',
-                enum: [
-                  'value1',
-                  'value2',
-                ],
-              },
-            }],
-          },
+            description: 'name param description',
+            in: 'query',
+            name: 'name',
+            required: true,
+            schema: {
+              type: 'string',
+              enum: [
+                'value1',
+                'value2',
+              ],
+            },
+          }],
         },
       },
     };

@@ -82,11 +82,7 @@ const parsePath = (path, state = {}) => {
 
 const parsePaths = (swaggerObject = {}, path) => {
   if (!path) return { paths: {} };
-  const pathObject = parsePath(path, swaggerObject.paths);
-  return {
-    ...swaggerObject,
-    paths: pathObject,
-  };
+  return parsePath(path, swaggerObject.paths);
 };
 
 module.exports = parsePaths;

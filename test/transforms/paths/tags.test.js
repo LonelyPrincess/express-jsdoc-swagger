@@ -10,18 +10,16 @@ describe('Paths - tags', () => {
        */
     `];
     const expected = {
-      paths: {
-        '/api/v1': {
-          get: {
-            deprecated: false,
-            summary: '',
-            security: [],
-            tags: [
-              'album',
-            ],
-            responses: {},
-            parameters: [],
-          },
+      '/api/v1': {
+        get: {
+          deprecated: false,
+          summary: '',
+          security: [],
+          tags: [
+            'album',
+          ],
+          responses: {},
+          parameters: [],
         },
       },
     };
@@ -39,19 +37,17 @@ describe('Paths - tags', () => {
        */
     `];
     const expected = {
-      paths: {
-        '/api/v1': {
-          get: {
-            deprecated: false,
-            summary: '',
-            security: [],
-            tags: [
-              'album',
-              'Years',
-            ],
-            responses: {},
-            parameters: [],
-          },
+      '/api/v1': {
+        get: {
+          deprecated: false,
+          summary: '',
+          security: [],
+          tags: [
+            'album',
+            'Years',
+          ],
+          responses: {},
+          parameters: [],
         },
       },
     };
@@ -69,19 +65,17 @@ describe('Paths - tags', () => {
        */
     `];
     const expected = {
-      paths: {
-        '/api/v1': {
-          get: {
-            deprecated: false,
-            summary: '',
-            security: [],
-            tags: [
-              'album',
-              'Years',
-            ],
-            responses: {},
-            parameters: [],
-          },
+      '/api/v1': {
+        get: {
+          deprecated: false,
+          summary: '',
+          security: [],
+          tags: [
+            'album',
+            'Years',
+          ],
+          responses: {},
+          parameters: [],
         },
       },
     };

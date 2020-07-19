@@ -9,9 +9,7 @@ describe('parseTags method', () => {
        * @summary example of no summary
        */
     `];
-    const expected = {
-      tags: [],
-    };
+    const expected = [];
     const parsedJSDocs = jsdocInfo()(jsodInput);
     const result = parseTags({}, parsedJSDocs[0]);
     expect(result).toEqual(expected);
@@ -20,9 +18,7 @@ describe('parseTags method', () => {
   it('should return empty tags array with not an array as parameter', () => {
     const initialState = {};
     const tags = 2;
-    const expected = {
-      tags: [],
-    };
+    const expected = [];
     const result = parseTags(initialState, tags);
     expect(result).toEqual(expected);
   });
@@ -40,21 +36,19 @@ describe('parseTags method', () => {
        * @tags artist - artist tag description
        */
     `];
-    const expected = {
-      tags: [
-        {
-          name: 'album',
-          description: 'album tag description',
-        },
-        {
-          name: 'artist',
-          description: 'artist tag description',
-        },
-      ],
-    };
+    const expected = [
+      {
+        name: 'album',
+        description: 'album tag description',
+      },
+      {
+        name: 'artist',
+        description: 'artist tag description',
+      },
+    ];
     const parsedJSDocs = jsdocInfo()(jsodInput);
     let result = parseTags({}, parsedJSDocs[0]);
-    result = parseTags(result, parsedJSDocs[1]);
+    result = parseTags({ tags: result }, parsedJSDocs[1]);
     expect(result).toEqual(expected);
   });
 
@@ -77,22 +71,20 @@ describe('parseTags method', () => {
        * @tags artist - artist tag description
        */
     `];
-    const expected = {
-      tags: [
-        {
-          name: 'album',
-          description: 'album tag description',
-        },
-        {
-          name: 'artist',
-          description: 'artist tag description',
-        },
-      ],
-    };
+    const expected = [
+      {
+        name: 'album',
+        description: 'album tag description',
+      },
+      {
+        name: 'artist',
+        description: 'artist tag description',
+      },
+    ];
     const parsedJSDocs = jsdocInfo()(jsodInput);
     let result = parseTags({}, parsedJSDocs[0]);
-    result = parseTags(result, parsedJSDocs[1]);
-    result = parseTags(result, parsedJSDocs[2]);
+    result = parseTags({ tags: result }, parsedJSDocs[1]);
+    result = parseTags({ tags: result }, parsedJSDocs[2]);
     expect(result).toEqual(expected);
   });
 
@@ -109,21 +101,19 @@ describe('parseTags method', () => {
        * @tags artist
        */
     `];
-    const expected = {
-      tags: [
-        {
-          name: 'album',
-          description: 'album tag description',
-        },
-        {
-          name: 'artist',
-          description: '',
-        },
-      ],
-    };
+    const expected = [
+      {
+        name: 'album',
+        description: 'album tag description',
+      },
+      {
+        name: 'artist',
+        description: '',
+      },
+    ];
     const parsedJSDocs = jsdocInfo()(jsodInput);
     let result = parseTags({}, parsedJSDocs[0]);
-    result = parseTags(result, parsedJSDocs[1]);
+    result = parseTags({ tags: result }, parsedJSDocs[1]);
     expect(result).toEqual(expected);
   });
 
@@ -140,17 +130,15 @@ describe('parseTags method', () => {
        * @tags album - album tag description
        */
     `];
-    const expected = {
-      tags: [
-        {
-          name: 'album',
-          description: 'album tag description',
-        },
-      ],
-    };
+    const expected = [
+      {
+        name: 'album',
+        description: 'album tag description',
+      },
+    ];
     const parsedJSDocs = jsdocInfo()(jsodInput);
     let result = parseTags({}, parsedJSDocs[0]);
-    result = parseTags({}, parsedJSDocs[1]);
+    result = parseTags({ tags: result }, parsedJSDocs[1]);
     expect(result).toEqual(expected);
   });
 });

@@ -5,9 +5,8 @@ const jsdocInfo = require('./consumers/jsdocInfo');
 const {
   getBasicInfo,
   getSecuritySchemes,
-  getPaths,
   getComponents,
-  getTags,
+  mainTransform,
 } = require('./transforms');
 
 const defaultLogger = () => null;
@@ -30,12 +29,10 @@ const processSwagger = (options, logger = defaultLogger) => {
     .then(getOnlyComments)
     .then(jsdocInfo())
     .then(data => {
-      swaggerObject = getPaths(swaggerObject, data);
-      logger({ entity: 'paths', swaggerObject });
+      swaggerObject = mainTransform(swaggerObject, data);
+      logger({ entity: 'endpoints', swaggerObject });
       swaggerObject = getComponents(swaggerObject, data);
       logger({ entity: 'components', swaggerObject });
-      swaggerObject = getTags(swaggerObject, data);
-      logger({ entity: 'tags', swaggerObject });
       return swaggerObject;
     });
 };

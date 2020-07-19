@@ -43,7 +43,7 @@ test('should called logger method', async () => {
     security: undefined,
   };
   await processSwagger(options, spy);
-  expect(spy).toHaveBeenCalledTimes(5);
+  expect(spy).toHaveBeenCalledTimes(4);
   expect(spy).toHaveBeenNthCalledWith(1, {
     entity: 'basicInfo',
     swaggerObject: expected,
@@ -56,25 +56,16 @@ test('should called logger method', async () => {
     },
   });
   expect(spy).toHaveBeenNthCalledWith(3, {
-    entity: 'paths',
+    entity: 'endpoints',
     swaggerObject: {
       ...expected,
       components: {},
       paths: {},
+      tags: [],
     },
   });
   expect(spy).toHaveBeenNthCalledWith(4, {
     entity: 'components',
-    swaggerObject: {
-      ...expected,
-      components: {
-        schemas: {},
-      },
-      paths: {},
-    },
-  });
-  expect(spy).toHaveBeenNthCalledWith(5, {
-    entity: 'tags',
     swaggerObject: {
       ...expected,
       components: {

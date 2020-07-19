@@ -11,29 +11,27 @@ test('should parse jsdoc path response with oneOf keyword', () => {
      */
   `];
   const expected = {
-    paths: {
-      '/api/v1': {
-        get: {
-          deprecated: false,
-          summary: 'This is the summary or description of the endpoint',
-          parameters: [],
-          tags: [],
-          security: [],
-          responses: {
-            200: {
-              description: 'success response',
-              content: {
-                'application/json': {
-                  schema: {
-                    oneOf: [
-                      {
-                        $ref: '#/components/schemas/Song',
-                      },
-                      {
-                        $ref: '#/components/schemas/Album',
-                      },
-                    ],
-                  },
+    '/api/v1': {
+      get: {
+        deprecated: false,
+        summary: 'This is the summary or description of the endpoint',
+        parameters: [],
+        tags: [],
+        security: [],
+        responses: {
+          200: {
+            description: 'success response',
+            content: {
+              'application/json': {
+                schema: {
+                  oneOf: [
+                    {
+                      $ref: '#/components/schemas/Song',
+                    },
+                    {
+                      $ref: '#/components/schemas/Album',
+                    },
+                  ],
                 },
               },
             },
@@ -57,21 +55,19 @@ test('should not parse when type is invalid', () => {
        */
     `];
   const expected = {
-    paths: {
-      '/api/v1': {
-        get: {
-          deprecated: false,
-          summary: 'This is the summary or description of the endpoint',
-          parameters: [],
-          tags: [],
-          security: [],
-          responses: {
-            200: {
-              description: 'success response',
-              content: {
-                'application/json': {
-                  schema: {},
-                },
+    '/api/v1': {
+      get: {
+        deprecated: false,
+        summary: 'This is the summary or description of the endpoint',
+        parameters: [],
+        tags: [],
+        security: [],
+        responses: {
+          200: {
+            description: 'success response',
+            content: {
+              'application/json': {
+                schema: {},
               },
             },
           },
@@ -161,32 +157,30 @@ test('should parse jsdoc path reference params with allOf keyword', () => {
      */
   `];
   const expected = {
-    paths: {
-      '/api/v1': {
-        get: {
+    '/api/v1': {
+      get: {
+        deprecated: false,
+        summary: '',
+        responses: {},
+        tags: [],
+        security: [],
+        parameters: [{
           deprecated: false,
-          summary: '',
-          responses: {},
-          tags: [],
-          security: [],
-          parameters: [{
-            deprecated: false,
-            description: 'name param description',
-            in: 'query',
-            name: 'name',
-            required: true,
-            schema: {
-              allOf: [
-                {
-                  $ref: '#/components/schemas/Song',
-                },
-                {
-                  $ref: '#/components/schemas/Album',
-                },
-              ],
-            },
-          }],
-        },
+          description: 'name param description',
+          in: 'query',
+          name: 'name',
+          required: true,
+          schema: {
+            allOf: [
+              {
+                $ref: '#/components/schemas/Song',
+              },
+              {
+                $ref: '#/components/schemas/Album',
+              },
+            ],
+          },
+        }],
       },
     },
   };

@@ -11,20 +11,18 @@ describe('Paths - security', () => {
        */
     `];
     const expected = {
-      paths: {
-        '/api/v1/song': {
-          post: {
-            deprecated: false,
-            summary: 'Create new song',
-            security: [
-              {
-                BasicAuth: [],
-              },
-            ],
-            tags: [],
-            responses: {},
-            parameters: [],
-          },
+      '/api/v1/song': {
+        post: {
+          deprecated: false,
+          summary: 'Create new song',
+          security: [
+            {
+              BasicAuth: [],
+            },
+          ],
+          tags: [],
+          responses: {},
+          parameters: [],
         },
       },
     };

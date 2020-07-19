@@ -32,10 +32,7 @@ const parseTags = (swaggerObject = {}, data) => {
   const tags = formatTags(data);
   const ordererTags = sortByDescription(tags);
   const uniqTags = filterDuplicateTags([...ordererTags, ...prevTags]);
-  return {
-    ...swaggerObject,
-    tags: sortTagsByName(uniqTags),
-  };
+  return sortTagsByName(uniqTags);
 };
 
 module.exports = parseTags;
