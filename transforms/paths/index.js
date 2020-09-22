@@ -1,6 +1,7 @@
 const responsesGenerator = require('./responses');
 const parametersGenerator = require('./parameters');
 const requestBodyGenerator = require('./requestBody');
+const getSchema = require('./schema');
 const { getTagInfo, getTagsInfo, formatDescriptionTag } = require('../utils/tags');
 const {
   validRequestBodyMethods: bodyMethods,
@@ -24,7 +25,32 @@ const setRequestBody = (lowerCaseMethod, bodyValues) => {
   return bodyMethods[lowerCaseMethod] && hasBodyValues ? { requestBody } : {};
 };
 
-const bodyParams = ({ name }) => name.includes('request.body');
+const filterParams = type => ({ name }) => name.includes(type);
+
+const bodyParams = filterParams('request.body');
+const formParams = filterParams('.form');
+
+const parseBodyParameter = (currentState, body) => {
+  console.log(body);
+  const options = {
+    name,
+    in: inOption,
+    required: isRequired,
+    deprecated: isDeprecated,
+    description,
+  };
+  const schema = getSchema('@param', body.name)(body.type);
+  console.log(schema);
+  return {};
+};
+
+const foo = (params = []) => {
+  if (!params || !Array.isArray(params)) return {};
+  const requestBody = params.reduce((acc, body) => (
+    { ...acc, ...parseBodyParameter(acc, body) }
+  ), { content: {} });
+  return requestBody;
+};
 
 const pathValues = tags => {
   const summary = getTagInfo(tags, 'summary');
@@ -42,6 +68,8 @@ const pathValues = tags => {
   const securityValues = getTagsInfo(tags, 'security');
   /* Request body info */
   const bodyValues = paramValues.filter(bodyParams);
+  /* */
+  const formValues = paramValues.filter(formParams);
   return {
     summary,
     isDeprecated,
@@ -50,6 +78,7 @@ const pathValues = tags => {
     tagsValues,
     bodyValues,
     securityValues,
+    formValues,
   };
 };
 
@@ -62,7 +91,9 @@ const parsePath = (path, state) => {
   const { tags } = path;
   const {
     summary, bodyValues, isDeprecated, responses, parameters, tagsValues, securityValues,
+    formValues,
   } = pathValues(tags);
+  console.log(foo(formValues));
   return {
     ...state,
     [endpoint]: {
@@ -75,6 +106,7 @@ const parsePath = (path, state) => {
         parameters,
         tags: formatTags(tagsValues),
         ...(setRequestBody(lowerCaseMethod, bodyValues)),
+        ...(setRequestBody(lowerCaseMethod, formValues)),
       },
     },
   };
